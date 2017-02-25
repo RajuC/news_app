@@ -1,24 +1,49 @@
+'use strict';
+
 var express = require('express');
 var router = express.Router();
+var newsHttp = require('../services/newshttp.js');
 
-/* GET Contact page. */
+/* GET post page. */
 router.get('/top', function(req, res, next) {
   console.log("http://localhost:4000/posts/top")
-  res.redirect('http://www.thehindu.com/news/national/tamil-nadu/Live-Supreme-Court-ruling-on-Sasikalas-disproportionate-assets-case/article17298985.ece');
-
+  newsHttp.httpGet("http://localhost:4000/posts/top", function (err, body) {
+      if (err) {
+        console.log(err)
+        res.redirect('/error');
+      }
+      else {
+        console.log('body body!');
+        res.render('post', body);
+      }
+    });
 });
 
 
 router.get('/latest', function(req, res, next) {
-console.log("http://localhost:4000/posts/latest")
-  res.redirect('http://www.thehindu.com/news/national/tamil-nadu/Live-Supreme-Court-ruling-on-Sasikalas-disproportionate-assets-case/article17298985.ece');
-
+  console.log("http://localhost:4000/posts/latest")
+  newsHttp.httpGet("http://localhost:4000/posts/latest", function (err, body) {
+      if (err) {
+        console.log(err)
+        res.redirect('/error');
+      }
+      else {
+        res.render('post', body);
+      }
+    });
 });
 
 router.get('/trending', function(req, res, next) {
-console.log("http://localhost:4000/posts/trending")
-  res.redirect('http://www.thehindu.com/news/national/tamil-nadu/Live-Supreme-Court-ruling-on-Sasikalas-disproportionate-assets-case/article17298985.ece');
-
+  console.log("http://localhost:4000/posts/trending")
+  newsHttp.httpGet("http://localhost:4000/posts/trending", function (err, body) {
+      if (err) {
+        console.log(err)
+        res.redirect('/error');
+      }
+      else {
+        res.render('post', body);
+      }
+    });
 });
 
 
