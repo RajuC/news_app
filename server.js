@@ -20,8 +20,6 @@ var app = express();
 var routes = require('./routes/index');
 var contact = require('./routes/contact');
 var category = require('./routes/categories');
-var top = require('./routes/top');
-var latest = require('./routes/latest');
 var trending = require('./routes/trending');
 var subscribe = require('./routes/subscribe');
 var country = require('./routes/country');
@@ -93,11 +91,9 @@ app.use(function (req, res, next){
 
 // api like stuff
 app.use('/', routes);
-app.use('/', top);
-app.use('/', latest);
-app.use('/', trending);
 app.use('/', contact);
 app.use('/', subscribe);
+app.use('/trending', trending);
 app.use('/category', category);
 app.use('/country', country);
 app.use('/posts', post);
