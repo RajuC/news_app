@@ -1,35 +1,72 @@
 var express = require('express');
 var router = express.Router();
+var newsHttp = require('../services/newshttp.js');
+
 
 /* GET Contact page. */
 router.get('/india', function(req, res, next) {
   console.log("http://localhost:4000/posts/country/in")
-  res.redirect('http://www.thehindu.com/news/national/tamil-nadu/Live-Supreme-Court-ruling-on-Sasikalas-disproportionate-assets-case/article17298985.ece');
-
+  newsHttp.httpGet("http://localhost:4000/posts/country/in", function (err, body) {
+      if (err) {
+        console.log(err)
+        res.redirect('/error');
+      }
+      else {
+        res.render('country', body);
+      }
+    });
 });
 
 router.get('/usa', function(req, res, next) {
   console.log("http://localhost:4000/posts/country/us")
-  res.redirect('http://www.thehindu.com/news/national/tamil-nadu/Live-Supreme-Court-ruling-on-Sasikalas-disproportionate-assets-case/article17298985.ece');
-
+  newsHttp.httpGet("http://localhost:4000/posts/country/us", function (err, body) {
+      if (err) {
+        console.log(err)
+        res.redirect('/error');
+      }
+      else {
+        res.render('country', body);
+      }
+    });
 });
 
 router.get('/uk', function(req, res, next) {
-console.log("http://localhost:4000/posts/country/gb")
-  res.redirect('http://www.thehindu.com/news/national/tamil-nadu/Live-Supreme-Court-ruling-on-Sasikalas-disproportionate-assets-case/article17298985.ece');
-
+	console.log("http://localhost:4000/posts/country/gb")
+  newsHttp.httpGet("http://localhost:4000/posts/country/gb", function (err, body) {
+      if (err) {
+        console.log(err)
+        res.redirect('/error');
+      }
+      else {
+        res.render('country', body);
+      }
+    });
 });
 
 
 router.get('/australia', function(req, res, next) {
-console.log("http://localhost:4000/posts/country/au")
-  res.redirect('http://www.thehindu.com/news/national/tamil-nadu/Live-Supreme-Court-ruling-on-Sasikalas-disproportionate-assets-case/article17298985.ece');
-
+  console.log("http://localhost:4000/posts/country/au")
+  newsHttp.httpGet("http://localhost:4000/posts/country/au", function (err, body) {
+      if (err) {
+        console.log(err)
+        res.redirect('/error');
+      }
+      else {
+        res.render('country', body);
+      }
+    });
 });
 
 router.get('/italy', function(req, res, next) {
 console.log("http://localhost:4000/posts/country/it")
-  res.redirect('http://www.thehindu.com/news/national/tamil-nadu/Live-Supreme-Court-ruling-on-Sasikalas-disproportionate-assets-case/article17298985.ece');
-
+  newsHttp.httpGet("http://localhost:4000/posts/country/it", function (err, body) {
+      if (err) {
+        console.log(err)
+        res.redirect('/error');
+      }
+      else {
+        res.render('country', body);
+      }
+    });
 });
 module.exports = router;
