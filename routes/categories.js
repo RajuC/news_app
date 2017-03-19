@@ -1,112 +1,44 @@
+'use strict';
+
 var express = require('express');
 var router = express.Router();
-var newsHttp = require('../services/newshttp.js');
+var postUtils = require('../services/postUtils.js');
+
 
 /* GET Contact page. */
 router.get('/general', function(req, res, next) {
-  console.log("http://localhost:4000/posts/category/general")
-  newsHttp.httpGet("http://localhost:4000/posts/category/general", function (err, body) {
-      if (err) {
-        console.log(err)
-        res.redirect('/error');
-      }
-      else {
-        res.render('category', body);
-      }
-    });
+  postUtils.renderPost(req, res, "category/general");
 });
 
 router.get('/business', function(req, res, next) {
-  console.log("http://localhost:4000/posts/category/business")
-  newsHttp.httpGet("http://localhost:4000/posts/category/business", function (err, body) {
-      if (err) {
-        console.log(err)
-        res.redirect('/error');
-      }
-      else {
-        res.render('category', body);
-      }
-    });
+  postUtils.renderPost(req, res, "category/business");
 });
 
-router.get('/tech', function(req, res, next) {
-  console.log("http://localhost:4000/posts/category/technology")
-  newsHttp.httpGet("http://localhost:4000/posts/category/technology", function (err, body) {
-      if (err) {
-        console.log(err)
-        res.redirect('/error');
-      }
-      else {
-        res.render('category', body);
-      }
-    });
+router.get('/technology', function(req, res, next) {
+  postUtils.renderPost(req, res, "category/technology");
 });
 
 
 router.get('/sport', function(req, res, next) {
-  console.log("http://localhost:4000/posts/category/sport")
-  newsHttp.httpGet("http://localhost:4000/posts/category/sport", function (err, body) {
-      if (err) {
-        console.log(err)
-        res.redirect('/error');
-      }
-      else {
-        res.render('category', body);
-      }
-    });
+  postUtils.renderPost(req, res, "category/sport");
 });
 
-router.get('/science', function(req, res, next) {
-  console.log("http://localhost:4000/posts/category/science-and-nature")
-  newsHttp.httpGet("http://localhost:4000/posts/category/science-and-nature", function (err, body) {
-      if (err) {
-        console.log(err)
-        res.redirect('/error');
-      }
-      else {
-        res.render('category', body);
-      }
-    });
+router.get('/science-and-nature', function(req, res, next) {
+  postUtils.renderPost(req, res, "category/science-and-nature");
 });
 
-router.get('/fun', function(req, res, next) {
-  console.log("http://localhost:4000/posts/category/entertainment")
-  newsHttp.httpGet("http://localhost:4000/posts/category/entertainment", function (err, body) {
-      if (err) {
-        console.log(err)
-        res.redirect('/error');
-      }
-      else {
-        res.render('category', body);
-      }
-    });
+router.get('/entertainment', function(req, res, next) {
+  postUtils.renderPost(req, res, "category/entertainment");
 });
 
 
 router.get('/music', function(req, res, next) {
-  console.log("http://localhost:4000/posts/category/music")
-  newsHttp.httpGet("http://localhost:4000/posts/category/music", function (err, body) {
-      if (err) {
-        console.log(err)
-        res.redirect('/error');
-      }
-      else {
-        res.render('category', body);
-      }
-    });
+  postUtils.renderPost(req, res, "category/music");
 });
 
 router.get('/gaming', function(req, res, next) {
-  console.log("http://localhost:4000/posts/category/gaming")
-  newsHttp.httpGet("http://localhost:4000/posts/category/gaming", function (err, body) {
-      if (err) {
-        console.log(err)
-        res.redirect('/error');
-      }
-      else {
-        res.render('category', body);
-      }
-    });
+  postUtils.renderPost(req, res, "category/gaming");
 });
+
 
 module.exports = router;

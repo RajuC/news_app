@@ -20,7 +20,6 @@ var app = express();
 var routes = require('./routes/index');
 var contact = require('./routes/contact');
 var category = require('./routes/categories');
-var trending = require('./routes/trending');
 var subscribe = require('./routes/subscribe');
 var country = require('./routes/country');
 var post = require('./routes/post');
@@ -93,9 +92,8 @@ app.use(function (req, res, next){
 app.use('/', routes);
 app.use('/', contact);
 app.use('/', subscribe);
-app.use('/trending', trending);
-app.use('/category', category);
-app.use('/country', country);
+app.use('/posts/category', category);
+app.use('/posts/country', country);
 app.use('/posts', post);
 app.use('/error', error);
 

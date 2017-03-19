@@ -1,12 +1,6 @@
-<div class="row">
-    <div class="col-lg-12">
-        <h1 class="page-header">News Feed
-            <small>News around the world</small>
-        </h1>
-    </div>
-</div>
 
-{{#each data}}
+
+{{#each posts}}
 <div class="row post_row">
     <div class="col-md-12">
         <a href={{post_url}}>
@@ -22,3 +16,11 @@
           </div>
 </div>
 {{/each}}
+
+<div class="col-md-9">
+  <ul class="pager">
+    <li class="previous"><a href="{{route}}?offset={{offset}}&posts=prev">Previous</a></li>
+    <li>Page: {{page}}</li>
+    <li class="next"><a href="{{route}}?offset={{offset}}&posts=next">Next</a></li>
+  </ul>
+</div>

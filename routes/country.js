@@ -1,72 +1,31 @@
+'use strict';
+
 var express = require('express');
 var router = express.Router();
-var newsHttp = require('../services/newshttp.js');
+var postUtils = require('../services/postUtils.js');
 
 
-/* GET Contact page. */
-router.get('/india', function(req, res, next) {
-  console.log("http://localhost:4000/posts/country/in")
-  newsHttp.httpGet("http://localhost:4000/posts/country/in", function (err, body) {
-      if (err) {
-        console.log(err)
-        res.redirect('/error');
-      }
-      else {
-        res.render('country', body);
-      }
-    });
+// GET Country Posts
+router.get('/in', function(req, res, next) {
+  postUtils.renderPost(req, res, "country/in");
 });
 
-router.get('/usa', function(req, res, next) {
-  console.log("http://localhost:4000/posts/country/us")
-  newsHttp.httpGet("http://localhost:4000/posts/country/us", function (err, body) {
-      if (err) {
-        console.log(err)
-        res.redirect('/error');
-      }
-      else {
-        res.render('country', body);
-      }
-    });
+router.get('/us', function(req, res, next) {
+  postUtils.renderPost(req, res, "country/us");
 });
 
-router.get('/uk', function(req, res, next) {
-	console.log("http://localhost:4000/posts/country/gb")
-  newsHttp.httpGet("http://localhost:4000/posts/country/gb", function (err, body) {
-      if (err) {
-        console.log(err)
-        res.redirect('/error');
-      }
-      else {
-        res.render('country', body);
-      }
-    });
+router.get('/gb', function(req, res, next) {
+  postUtils.renderPost(req, res, "country/gb");
 });
 
 
-router.get('/australia', function(req, res, next) {
-  console.log("http://localhost:4000/posts/country/au")
-  newsHttp.httpGet("http://localhost:4000/posts/country/au", function (err, body) {
-      if (err) {
-        console.log(err)
-        res.redirect('/error');
-      }
-      else {
-        res.render('country', body);
-      }
-    });
+router.get('/au', function(req, res, next) {
+  postUtils.renderPost(req, res, "country/au");
 });
 
-router.get('/italy', function(req, res, next) {
-console.log("http://localhost:4000/posts/country/it")
-  newsHttp.httpGet("http://localhost:4000/posts/country/it", function (err, body) {
-      if (err) {
-        console.log(err)
-        res.redirect('/error');
-      }
-      else {
-        res.render('country', body);
-      }
-    });
+router.get('/it', function(req, res, next) {
+  postUtils.renderPost(req, res, "country/it");
 });
+
+
 module.exports = router;
