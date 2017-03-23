@@ -6,14 +6,34 @@ var exphbs = require('express-handlebars');
 var flash = require('connect-flash');
 var session = require('express-session');
 var expValidator = require('express-validator');
-/*var mongo = require('mongodb');
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/news_feed_dev');
-var db = mongoose.connection;*/
+var helpers = require('./lib/helpers');
 
 
 var app = express();
 
+
+// Create `ExpressHandlebars` instance with a default layout.
+var hbs = exphbs.create({
+    defaultLayout: 'layout',
+    helpers      : helpers,
+
+    // Uses multiple partials dirs, templates in "shared/templates/" are shared
+    // with the client-side of the app (see below).
+    partialsDir: [
+        'shared/templates/',
+        'views/partials/'
+    ]
+});
+
+// Register `hbs` as our view engine using its bound `engine()` function.
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+// view engine
+
+/*app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', exphbs({defaultLayout:'layout'}));
+app.set('view engine', 'handlebars');*/
 
 // routes
 
@@ -26,11 +46,7 @@ var post = require('./routes/post');
 var error = require('./routes/error');
 
 
-// view engine
 
-app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({defaultLayout:'layout'}));
-app.set('view engine', 'handlebars');
 
 // body-parser middlewares
 
