@@ -3,7 +3,7 @@
 var newsHttp = require('../services/newshttp.js');
 var postUrl = "http://localhost:4000/posts/";
 var postUtils = require('../services/postUtils.js');
-
+var merge = require('merge')
 
 
 module.exports.getOffset = function(req){
@@ -22,7 +22,7 @@ module.exports.getOffset = function(req){
 }
 
 
-module.exports.renderPost = function(req, res, postType){
+module.exports.renderPost = function(req, res, postType, page){
   var offset = postUtils.getOffset(req);
   var url =  postUrl + postType + "?offset=" + offset + "&limit=20&posts=" + req.query.posts ;
   console.log(url);
@@ -33,7 +33,7 @@ module.exports.renderPost = function(req, res, postType){
     }
     else {
       console.log('body body!');
-      res.render('post', body);
+      res.render('post', merge(body, {"page": page}));
     }
   });
 }

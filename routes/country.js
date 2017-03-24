@@ -7,24 +7,24 @@ var postUtils = require('../services/postUtils.js');
 
 // GET Country Posts
 router.get('/in', function(req, res, next) {
-  postUtils.renderPost(req, res, "country/in");
+  postUtils.renderPost(req, res, "country/in", "country");
 });
 
 router.get('/us', function(req, res, next) {
-  postUtils.renderPost(req, res, "country/us");
+  postUtils.renderPost(req, res, "country/us", "country");
 });
 
 router.get('/gb', function(req, res, next) {
-  postUtils.renderPost(req, res, "country/gb");
+  postUtils.renderPost(req, res, "country/gb", "country");
 });
 
 
 router.get('/au', function(req, res, next) {
-  postUtils.renderPost(req, res, "country/au");
+  postUtils.renderPost(req, res, "country/au", "country");
 });
 
 router.get('/it', function(req, res, next) {
-  postUtils.renderPost(req, res, "country/it");
+  postUtils.renderPost(req, res, "country/it", "country");
 });
 
 

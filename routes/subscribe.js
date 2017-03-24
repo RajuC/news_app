@@ -4,7 +4,7 @@ var newsHttp = require('../services/newshttp.js');
 
 /* GET Contact page. */
 router.get('/subscribe', function(req, res, next) {
-  res.render('subscribe')});
+  res.render('subscribe', {"page":"subscribe"})});
 
 router.post('/subscribe', function(req, res, next) {
 	console.log(req.body["email"]);

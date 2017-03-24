@@ -7,7 +7,7 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var expValidator = require('express-validator');
 var helpers = require('./lib/helpers');
-
+/*var activehelper = require('./lib/activeHelper');*/
 
 var app = express();
 
