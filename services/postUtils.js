@@ -1,7 +1,7 @@
  'use strict';
 
 var newsHttp = require('../services/newshttp.js');
-var postUrl = "http://localhost:4000/posts/";
+var postUrl = "http://localhost:4000";
 var postUtils = require('../services/postUtils.js');
 var merge = require('merge')
 
@@ -21,10 +21,12 @@ module.exports.getOffset = function(req){
     }
 }
 
+http://localhost:4000/posts/category/general?offset=undefined&limit=20&posts=undefined
 
-module.exports.renderPost = function(req, res, postType, page){
+
+module.exports.renderPost = function(req, res, route, tabs){
   var offset = postUtils.getOffset(req);
-  var url =  postUrl + postType + "?offset=" + offset + "&limit=20&posts=" + req.query.posts ;
+  var url =  postUrl + route + "?offset=" + offset + "&limit=20&posts=" + req.query.posts ;
   console.log(url);
   newsHttp.httpGet(url, function (err, body) {
     if (err) {
@@ -33,7 +35,7 @@ module.exports.renderPost = function(req, res, postType, page){
     }
     else {
       console.log('body body!');
-      res.render('post', merge(body, {"page": page}));
+      res.render('post', merge(body, {"tabs": tabs, "route": route}));
     }
   });
 }
