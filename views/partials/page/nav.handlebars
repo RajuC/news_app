@@ -13,19 +13,19 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                  <li class={{#customif expected="posts" val=tab}}"active"{{/customif}}>
+                  <li class={{#customif expected="posts" val=tabs}}"active"{{/customif}}>
                       <a href="/"> News Dashboard</a>
                   </li>      
-                  <li class={{#customif expected="top" val=tab}}"active"{{/customif}}>
+                  <li class={{#customif expected="top" val=tabs}}"active"{{/customif}}>
                       <a href="/posts/top">Top News</a>
                   </li>
-                  <li class={{#customif expected="latest" val=tab}}"active"{{/customif}}>
+                  <li class={{#customif expected="latest" val=tabs}}"active"{{/customif}}>
                       <a href="/posts/latest">Latest News</a>
                   </li>
-                  <li class={{#customif expected="trending" val=tab}}"active"{{/customif}}>
+                  <li class={{#customif expected="trending" val=tabs}}"active"{{/customif}}>
                       <a href="/posts/trending">Trending News</a>
                   </li>
-                  <li class="dropdown {{#customif expected="country" val=tab}}active{{/customif}}">
+                  <li class="dropdown {{#customif expected="country" val=tabs}}active{{/customif}}">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">World News <b class="caret"></b></a>
                       <ul class="dropdown-menu">
                           <li class={{#customif expected="/posts/country/in" val=route}}"active"{{/customif}}>
@@ -45,10 +45,10 @@
                           </li>
                       </ul>
                   </li>
-                  <li class={{#customif expected="subscribe" val=tab}}"active"{{/customif}}>
+                  <li class={{#customif expected="subscribe" val=tabs}}"active"{{/customif}}>
                       <a href="/subscribe">Subscribe</a>
                   </li>
-                  <li class={{#customif expected="contact" val=tab}}"active"{{/customif}}>
+                  <li class={{#customif expected="contact" val=tabs}}"active"{{/customif}}>
                       <a href="/contact">Contact</a>
                   </li>
               </ul>

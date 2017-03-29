@@ -24,7 +24,7 @@ module.exports.getOffset = function(req){
 http://localhost:4000/posts/category/general?offset=undefined&limit=20&posts=undefined
 
 
-module.exports.renderPost = function(req, res, route, tabs){
+module.exports.renderPost = function(req, res, route, tabs, pageTitle){
   var offset = postUtils.getOffset(req);
   var url =  postUrl + route + "?offset=" + offset + "&limit=20&posts=" + req.query.posts ;
   console.log(url);
@@ -35,7 +35,7 @@ module.exports.renderPost = function(req, res, route, tabs){
     }
     else {
       console.log('body body!');
-      res.render('post', merge(body, {"tabs": tabs, "route": route}));
+      res.render('post', merge(body, {"tabs": tabs, "route": route, "pageTitle":pageTitle}));
     }
   });
 }
